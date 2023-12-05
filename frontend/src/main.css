@@ -1,0 +1,88 @@
+.main
+{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.div_1
+{
+    /* border: 2px solid black; */
+    height:100vh;
+    width: 50%;
+    /* background-color: lightblue; */
+    background-color:azure;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    background-color: azure;
+}
+
+input{
+    background-color: azure;
+    height: 30px;
+    width: 45%;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+
+.div_2
+{
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    width: 50%;
+    background-color:azure;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration:underline;
+}
+
+button{
+    height: 40px;
+    width: 20%;
+    border: 3px solid aliceblue;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+}
+
+button:hover,.download:hover
+{
+    background-color: aliceblue;
+    color: black;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.download
+{
+    text-decoration: none;
+    height: 40px;
+    width: 20%;
+    border: 3px solid aliceblue;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
