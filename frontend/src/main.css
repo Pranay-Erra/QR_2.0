@@ -1,88 +1,83 @@
-.main
-{
+.main {
     display: flex;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
+    height: 100vh; /* Ensure full viewport height */
 }
 
-.div_1
-{
-    /* border: 2px solid black; */
-    height:100vh;
-    width: 50%;
-    /* background-color: lightblue; */
-    background-color:azure;
+.div_1 {
+    width: 45%; /* Adjusted width for smaller screens */
+    background-color: azure;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    max-width: 600px; /* Limit width for larger screens */
 }
 
-h2{
+.div_2 {
+    width: 45%; /* Adjusted width for smaller screens */
     background-color: azure;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 600px; /* Limit width for larger screens */
 }
 
-input{
+h1 {
+    text-align: center; /* Center the heading */
+    text-decoration: underline;
+}
+
+h2 {
+    background-color: azure;
+    text-align: center; /* Center the heading */
+    padding: 10px;
+}
+
+input {
     background-color: azure;
     height: 30px;
-    width: 45%;
+    width: 100%;
+    max-width: 400px; /* Limit input width */
     border-radius: 5px;
     border: 2px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
-
-.div_2
-{
-    /* border: 2px solid blue; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
-    width: 50%;
-    background-color:azure;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration:underline;
-}
-
-button{
+button, .download {
     height: 40px;
-    width: 20%;
+    width: 100%;
+    max-width: 200px; /* Limit button width */
     border: 3px solid aliceblue;
     color: aliceblue;
     font-size: 15px;
     font-weight: bold;
     background-color: black;
-}
-
-button:hover,.download:hover
-{
-    background-color: aliceblue;
-    color: black;
-    border: 3px solid black;
+    margin-top: 10px;
     cursor: pointer;
 }
 
-.download
-{
-    text-decoration: none;
-    height: 40px;
-    width: 20%;
-    border: 3px solid aliceblue;
-    color: aliceblue;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+button:hover, .download:hover {
+    background-color: aliceblue;
+    color: black;
+    border: 3px solid black;
 }
 
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    .div_1, .div_2 {
+        width: 80%; /* Adjust width for smaller screens */
+        margin-bottom: 20px;
+    }
+}
