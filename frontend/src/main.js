@@ -9,19 +9,19 @@ const Qrcodegenerator = () => {
 
     const GeneratorQRcode = async () => {
         try {
-            // Reset error message
             setError('');
-
-            // Call your backend API to generate the tracking URL and QR code
-            const response = await axios.post('http://localhost:8000/api/generate-qr', { originalUrl: url });
-
-            // Set the returned QR code data URL
+            
+            // Ensure the URL includes 'http://' or 'https://'
+            const formattedUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `http://${url}`;
+            
+            const response = await axios.post('http://localhost:8000/api/generate-qr', { originalUrl: formattedUrl });
             setQrcode(response.data.qrCodeUrl);
         } catch (err) {
             console.error(err);
             setError('Failed to generate QR code. Please try again.');
         }
     }
+    
 
     return (
         <>
