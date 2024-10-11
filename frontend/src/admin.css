@@ -27,3 +27,20 @@
 .error {
     color: red;
 }
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.Toastify__toast-container {
+    z-index: 9999;
+}
