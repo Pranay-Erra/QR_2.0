@@ -14,7 +14,7 @@ const Qrcodegenerator = () => {
             // Ensure the URL includes 'http://' or 'https://'
             const formattedUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `http://${url}`;
             
-            const response = await axios.post('http://localhost:8000/api/generate-qr', { originalUrl: formattedUrl });
+            const response = await axios.post('https://qr-2-0.onrender.com/api/generate-qr', { originalUrl: formattedUrl });
             setQrcode(response.data.qrCodeUrl);
         } catch (err) {
             console.error(err);
