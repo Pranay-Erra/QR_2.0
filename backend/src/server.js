@@ -110,3 +110,24 @@ app.get('/api/qrcodes', async (req, res) => {
         res.status(500).send("Error fetching QR codes");
     }
 });
+
+
+app.delete('/api/qrcodes/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Find and delete the QR code by its ID
+        const deletedQrCode = await QrCodeModel.findByIdAndDelete(id);
+
+        // If the QR code is not found
+        if (!deletedQrCode) {
+            return res.status(404).send('QR Code not found');
+        }
+
+        // Send success response
+        res.json({ message: 'QR Code deleted successfully' });
+    } catch (error) {
+        console.error("Error deleting QR code:", error);
+        res.status(500).send('Error deleting QR code');
+    }
+});
