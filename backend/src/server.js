@@ -27,7 +27,7 @@ app.get('/hello', (req, res) => {
 
 
 
-const BASE_URL = 'http://localhost:8000'; // Update this with your actual domain
+const BASE_URL = 'https://qr-2-0.onrender.com'; // Update this with your actual domain
 
 // Endpoint to generate QR code
 app.post('/api/generate-qr', async (req, res) => {
