@@ -30,9 +30,10 @@ const AdminDashboard = () => {
             setQrCodes(qrCodes.filter(qr => qr._id !== id));
 
             // Show a success toast
-            toast.success('QR Code deleted successfully!', {
-                position: toast.POSITION.TOP_CENTER
-            });
+            // toast.success('QR Code deleted successfully!', {
+            //     position: toast.POSITION.TOP_CENTER
+            // });
+            alert('QR Code deleted successfully!');
         } catch (err) {
             console.error("Error deleting QR code:", err);
             setError('Failed to delete QR code.');
