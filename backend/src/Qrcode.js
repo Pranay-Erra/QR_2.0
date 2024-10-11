@@ -9,11 +9,15 @@ const qrCodeSchema = new mongoose.Schema({
     uniqueCode: {
         type: String,
         required: true,
-        unique: true, // Ensure unique codes for each entry
+        unique: true,
     },
-}, { timestamps: true }); // Automatically manage createdAt and updatedAt fields
+    scanCount: {
+        type: Number,
+        default: 0, // Start the scan count at 0
+    },
+}, { timestamps: true });
 
 // Create the model from the schema
 const QrCodeModel = mongoose.model('QrCode', qrCodeSchema);
 
-export default QrCodeModel; // Export the model for use in your server.js
+export default QrCodeModel;

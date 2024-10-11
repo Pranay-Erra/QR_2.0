@@ -27,7 +27,7 @@ app.get('/hello', (req, res) => {
 
 
 
-const BASE_URL = 'https://qr-2-0.onrender.com'; // Update this with your actual domain
+const BASE_URL = 'http://localhost:8000'; // Update this with your actual domain
 
 // Endpoint to generate QR code
 app.post('/api/generate-qr', async (req, res) => {
@@ -53,15 +53,27 @@ app.post('/api/generate-qr', async (req, res) => {
 });
 
 // Endpoint to track scans
+// Endpoint to track scans and redirect to the original URL
 app.get('/api/track', async (req, res) => {
     const { id } = req.query;
 
-    const qrCode = await QrCodeModel.findOne({ uniqueCode: id });
-    if (!qrCode) return res.status(404).send('QR code not found');
+    try {
+        // Find the QR code entry by its unique code
+        const qrCode = await QrCodeModel.findOne({ uniqueCode: id });
+        if (!qrCode) return res.status(404).send('QR code not found');
 
-    // Redirect to the original URL
-    res.redirect(qrCode.originalUrl);
+        // Increment the scan count
+        qrCode.scanCount += 1;
+        await qrCode.save(); // Save the updated scan count to the database
+
+        // Redirect to the original URL
+        res.redirect(qrCode.originalUrl);
+    } catch (err) {
+        console.error("Error tracking QR code scan:", err);
+        res.status(500).send("Error tracking QR code scan");
+    }
 });
+
 
 
 
