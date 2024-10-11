@@ -3,6 +3,7 @@ import './App.css';
 import Qrcodegenerator from './main';
 import {Routes,Route,BrowserRouter} from 'react-router-dom';
 import Test from './test';
+import AdminDashboard from './adminDashboard';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Qrcodegenerator/>}/>
       <Route path='/test' element={<Test/>}/>
+      <Route path='/admin' element={<AdminDashboard/>}/>
       </Routes>
       </BrowserRouter>
     </>

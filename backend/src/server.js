@@ -95,3 +95,18 @@ app.post('/api/test', async (req, res) => {
         res.status(500).json({ error: "Failed to insert data into database" });
     }
 });
+
+
+// Endpoint to fetch all QR codes for admin view
+app.get('/api/qrcodes', async (req, res) => {
+    try {
+        // Fetch all QR codes from the database
+        const qrCodes = await QrCodeModel.find({}, 'originalUrl createdAt scanCount'); // Only select necessary fields
+        
+        // Send the fetched data back to the frontend
+        res.json(qrCodes);
+    } catch (error) {
+        console.error("Error fetching QR codes:", error);
+        res.status(500).send("Error fetching QR codes");
+    }
+});
